@@ -1,0 +1,53 @@
+### Variables
+@host = http://localhost:5000
+@client_id=(a modifier après la création du client)
+
+@reservation_id=(a modifier après la création de la réservation)
+### 1. Create a new client
+POST {{host}}/api/clients
+Content-Type: application/json
+
+{
+  "name": "Paul",
+  "email": "Paul@examplee.com",
+  "phone": "+33123456790"
+}
+
+
+
+### 2. Top up wallet
+POST {{host}}/api/clients/{{client_id}}/wallet
+Content-Type: application/json
+
+{
+  "amount": 150,
+  "currency": "EUR"
+}
+
+### 3. List available rooms
+GET {{host}}/api/rooms
+
+### 4. Make a reservation
+POST {{host}}/api/reservations
+Content-Type: application/json
+
+{
+  "client_id": "{{client_id}}",
+  "checkin_date": "2025-07-01",
+  "nights": 2,
+  "rooms": ["standard", "suite"]
+}
+
+
+### 5. Pay reservation deposit
+POST {{host}}/api/reservations/{{reservation_id}}/deposit
+Content-Type: application/json
+
+{
+  "deposit": 100.0
+}
+### 6. Confirm reservation
+POST {{host}}/api/reservations/{{reservation_id}}/confirm
+
+### 7. Cancel reservation
+POST {{host}}/api/reservations/{{reservation_id}}/cancel
