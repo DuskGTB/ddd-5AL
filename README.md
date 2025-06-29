@@ -50,7 +50,6 @@ docker-compose run --rm test
 
 ### 2. Bounded Contexts
 
-![alt text](boundedtext.png)
 
 ```mermaid
 flowchart LR
@@ -75,7 +74,6 @@ flowchart LR
 
 ### 3. Context Map
 
-![alt text](contextmap.png)
 
 ```mermaid
 graph TD
